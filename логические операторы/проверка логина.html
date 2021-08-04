@@ -11,15 +11,19 @@
 <body>
     <script>
         "use strict";
-        let userName = prompt("Кто там?", "")
-        if (userName == "Admin") {
-            let password = prompt("Пароль?", "")
-            let message = (password == "Я главный") ? "Здравствуйте" :
-                (password == "" || password == null) ? "Отменено" :
-                    "Неверный пароль";
-            alert(message)
-        } else if (userName == "" || userName == null) {
+        let userName = prompt("Кто там?", "");
+
+        if (userName == "" || userName == null) {
             alert("Отменено")
+        } else if (userName == "Admin") {
+            let password = prompt("Пароль?", "")
+            if (password == "" || password == null) {
+                alert("Отменено")
+            } else if (password == "Я главный") {
+                alert("Здравствуйте")
+            } else {
+                alert("Неверный пароль")
+            }
         } else {
             alert("Я вас не знаю")
         }
